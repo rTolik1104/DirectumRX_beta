@@ -1,0 +1,55 @@
+﻿@model FileModel
+@{
+	Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="~/css/style.css">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="order-last">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	        		</button>
+        		</div>
+        		<div>
+					<h2>Регистрационный номер<span>@Model.RegistrationNumber</span></h2>
+					<hr>
+					<div class="row">
+						<div>
+							<h2>Дата создания</h2><span>@Model.DocumentDate.Value.ToString("dd-MMM-yyyy HH:mm")</span>
+						</div>
+						<div>
+							<h2>Дата подписания</h2><span>@Model.SignDate.Value.ToString("dd-MMM-yyyy HH:mm")</span>
+						</div>
+					</div>
+					<hr>
+					<div class="information">
+						<h2>Имя документа<span>@Model.FileName</span></h2>
+						<h2>Подписан<span>@Model.SignatoryName<br /><span>@Model.SignId</span></span></h2>
+					</div>
+	      		</div>
+    		</nav>
+
+        	<!-- Page Content  -->
+			<div id="content" class="p-4 p-md-5 pt-5">
+				<iframe src="~/files/@Model.FilePath" width="100%" height="100%"></iframe>
+			</div>
+		</div>
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/popper.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/main.js"></script>
+  </body>
+</html>
